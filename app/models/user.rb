@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true
   validates :birth_day, presence: true
+  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
+  validates :password, format: { with: VALID_PASSWORD_REGEX }
   validates :encrypted_password, presence:true
   with_options presence: true do
     validates :last_name, format: {with: /\A[ぁ-んァ-ヶー-龥々ー]+\z/, message: "is invalid. Input full-width characteres."}
