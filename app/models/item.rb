@@ -12,7 +12,7 @@ class Item < ApplicationRecord
 		validates :image
 		validates :name
 		validates :description
-		validates :price, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is invalid"}
+		validates :price, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is invalid"}
 	end
 
 	with_options numericality: {other_than: 1 } do
